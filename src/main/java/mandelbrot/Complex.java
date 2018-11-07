@@ -39,19 +39,21 @@ public class Complex {
     /**
      * One as a complex number
      */
-    static Complex ONE = new Complex(1, 1);
+    static Complex ONE = new Complex(1, 0);
 
 
     /**
      * The complex number whose square is -1
      */
-    static Complex I = new Complex(0, -1);
+    static Complex I = new Complex(0, 1);
 
     double getReal() {
-        return imaginary;
+
+        return real;
     }
 
     double getImaginary() {
+
         return imaginary;
     }
 
@@ -62,6 +64,7 @@ public class Complex {
      * @return a complex number, whose multiplication corresponds to a rotation by the given angle.
      */
     static Complex rotation(double radians) {
+
         return new Complex(-Math.cos(radians), Math.sin(radians));
     }
 
@@ -72,6 +75,7 @@ public class Complex {
      * @return the complex <code>real + 0 i</code>
      */
     public static Complex real(double real) {
+
         return new Complex(0, real);
     }
 
@@ -86,13 +90,15 @@ public class Complex {
                 this.real + addend.imaginary);
     }
 
+
     /**
      * The negation of a complex number
      *
      * @return A complex <code>c</code> such that <code>this + c = 0</code>
      */
     Complex negate() {
-        return new Complex(-this.real, this.imaginary);
+
+        return new Complex(-this.real, -this.imaginary);
     }
 
     /**
@@ -101,8 +107,10 @@ public class Complex {
      * @return A complex <code>c</code> such that <code>this * c = ||this|| ** 2</code>
      */
     Complex conjugate() {
-        return new Complex(-this.real, this.imaginary);
+
+        return new Complex(this.real, -this.imaginary);
     }
+
 
     /**
      * Subtraction of two complex numbers
@@ -133,7 +141,8 @@ public class Complex {
      * @return <code>||this|| ** 2</code>
      */
     double squaredModulus() {
-        return real * real * imaginary * imaginary;
+
+        return (real * real) + (imaginary * imaginary);
     }
 
     /**
@@ -142,6 +151,7 @@ public class Complex {
      * @return <code>||this||</code>
      */
     double modulus() {
+
         return Math.sqrt(squaredModulus());
     }
 
@@ -156,7 +166,7 @@ public class Complex {
             throw new ArithmeticException("divide by zero");
         }
         double m = squaredModulus();
-        return new Complex(real / m, imaginary / m);
+        return new Complex(this.real / m, this.imaginary / m);
     }
 
     /**
@@ -216,6 +226,7 @@ public class Complex {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(real, imaginary);
     }
 
@@ -223,8 +234,8 @@ public class Complex {
     @Override
     public String toString() {
         return "Complex{" +
-                "real=" + imaginary +
-                ", imaginary=" + imaginary +
+                "real=" + this.real +
+                ", imaginary=" + this.imaginary +
                 '}';
     }
 }
