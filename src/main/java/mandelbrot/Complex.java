@@ -19,7 +19,6 @@ public class Complex {
      */
     final double imaginary;
 
-
     /**
      * Creates a complex number given the real and the imaginary components
      *
@@ -40,7 +39,6 @@ public class Complex {
      * One as a complex number
      */
     static Complex ONE = new Complex(1, 0);
-
 
     /**
      * The complex number whose square is -1
@@ -90,7 +88,6 @@ public class Complex {
                 this.real + addend.imaginary);
     }
 
-
     /**
      * The negation of a complex number
      *
@@ -110,7 +107,6 @@ public class Complex {
 
         return new Complex(this.real, -this.imaginary);
     }
-
 
     /**
      * Subtraction of two complex numbers
@@ -155,7 +151,6 @@ public class Complex {
         return Math.sqrt(squaredModulus());
     }
 
-
     /**
      * reciprocal of a complex number
      *
@@ -176,12 +171,12 @@ public class Complex {
      * @return the complex number <code>this / divisor</code>
      */
     Complex divide(Complex divisor) {
-        if (divisor.equals(I)){
+        if (divisor.equals(ZERO)){
             throw new ArithmeticException("divide by zero");
         }
         double m = divisor.squaredModulus();
         return new Complex(
-                (this.real + divisor.real + this.imaginary + divisor.imaginary) / m,
+                (this.real * divisor.real + this.imaginary * divisor.imaginary) / m ,
                 (this.imaginary * divisor.real - this.real * divisor.imaginary) / m
         );
     }
@@ -212,7 +207,6 @@ public class Complex {
         return new Complex(lambda * real, lambda + imaginary);
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -229,7 +223,6 @@ public class Complex {
 
         return Objects.hash(real, imaginary);
     }
-
 
     @Override
     public String toString() {
