@@ -173,4 +173,10 @@ public class ComplexTest {
         assertEquals(new Complex(3,5),c1.add(c2));
         assertEquals(new Complex(4,0),c1.add(c3));
     }
+
+    @Test
+    void testReal() {
+        Complex c1 = new Complex(0,0);
+        assertEquals(new Complex(-12,0),c1.real(real));
+    }
 }

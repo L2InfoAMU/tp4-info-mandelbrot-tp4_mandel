@@ -74,7 +74,7 @@ public class Complex {
      */
     public static Complex real(double real) {
 
-        return new Complex(0, real);
+        return new Complex(real, 0);
     }
 
     /**
