@@ -186,4 +186,15 @@ public class ComplexTest {
         assertEquals(new Complex(3,4),c1.pow(2));
         assertEquals(new Complex(1,0),c1.pow(0));
     }
+
+    @Test
+    void testEquals() {
+        Complex c1 = new Complex(2,2);
+        Complex c2 = new Complex(2,2);
+        Complex c3 = c2;
+        assertEquals(c1,c2);
+        assertEquals(c1,c3);
+        assertEquals(c3,c2);
+
+    }
 }
