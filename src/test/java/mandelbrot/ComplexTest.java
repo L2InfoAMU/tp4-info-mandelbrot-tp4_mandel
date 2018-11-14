@@ -159,4 +159,13 @@ public class ComplexTest {
         assertEquals(13,c1.squaredModulus());
         assertEquals(4,two.squaredModulus());
     }
+
+    @Test
+    void testModulus()
+    {
+        Complex c1 = new Complex(12,0);
+        Complex c2 = new Complex(0,13);
+        assertEquals(12,c1.modulus());
+        assertEquals(13,c2.modulus());
+    }
 }
