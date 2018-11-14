@@ -179,4 +179,11 @@ public class ComplexTest {
         Complex c1 = new Complex(0,0);
         assertEquals(new Complex(-12,0),c1.real(real));
     }
+
+    @Test
+    void testPow() {
+        Complex c1 = new Complex(2,1);
+        assertEquals(new Complex(3,4),c1.pow(2));
+        assertEquals(new Complex(1,0),c1.pow(0));
+    }
 }
