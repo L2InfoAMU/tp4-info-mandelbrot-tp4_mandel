@@ -142,4 +142,13 @@ public class ComplexTest {
         assertEquals(new Complex(0,-2),minusI.scale(2));
         assertEquals(new Complex(-5,0),minusOne.scale(5));
     }
+
+    @Test
+    void testMultiply()
+    {
+        Complex c1 = new Complex(2,3);
+        Complex c2 = new Complex(3,1);
+        Complex c3 = new Complex(3,11);
+        assertEquals(c3,c1.multiply(c2));
+    }
 }
